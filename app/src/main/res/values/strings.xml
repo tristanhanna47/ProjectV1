@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Project-V1</string>
+    <string-array name="chest_exercises_array">
+        <item>Deadlift</item>
+        <item>Pull-Up</item>
+        <item>Row</item>
+    </string-array>
+</resources>
