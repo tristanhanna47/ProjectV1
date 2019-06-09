@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.t00584336.project_v1">
+    package="com.example.t00584336.project_v1"
+    android:versionCode="1"
+    android:versionName="1.0"
+    android:name = ".CaloriecountGlobal">
 
     <application
         android:allowBackup="true"
@@ -16,11 +19,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ChestActivity" />
-        <activity android:name=".BackActivity" />
-        <activity android:name=".BicepActivity" />
-        <activity android:name=".TricepActivity" />
-        <activity android:name=".LegActivity"></activity>
+        <activity android:name=".WeightActivity" />
+        <activity android:name=".RunningActivity" />
+        <activity android:name=".SwimmingActivity" />
+        <activity android:name=".WalkingActivity" />
     </application>
 
 </manifest>

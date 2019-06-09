@@ -8,27 +8,26 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class ChestActivity extends Activity {
+public class WeightActivity extends Activity {
 
-    ChestExercises[] chestex = { new ChestExercises ("Deadlift ", 200)
+    Exercises[] weightex = { new Exercises("Deadlift ", 200)
     };
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chest);
+        setContentView(R.layout.activity_weight);
 
-        ListView listView = (ListView) findViewById(R.id.chestlist);
+        ListView listView = (ListView) findViewById(R.id.weightlist);
 
-        ArrayAdapter<ChestExercises> adapter = new ArrayAdapter<ChestExercises>(this,android.R.layout.simple_list_item_1, chestex );
+        ArrayAdapter<Exercises> adapter = new ArrayAdapter<Exercises>(this,android.R.layout.simple_list_item_1, weightex );
         listView.setAdapter(adapter);
 
         // Create a message handling object as an anonymous class.
          AdapterView.OnItemClickListener messageClickedHandler = new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView parent, View v, int position, long id) {
                 // Do something in response to the click
-                Toast.makeText(getApplicationContext(), " You added the " + chestex[position] + " exercise to the workout",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "You added the " + weightex[position] + " exercise to the workout",Toast.LENGTH_LONG).show();
             }
         };
 

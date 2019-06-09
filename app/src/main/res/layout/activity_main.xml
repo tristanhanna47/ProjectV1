@@ -7,16 +7,16 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/chest"
+        android:id="@+id/weight"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:onClick="gotochest"
-        android:text="Chest Exercises"
-        app:layout_constraintBottom_toTopOf="@+id/back"
+        android:onClick="gotoweight"
+        android:text="Weightlifting Exercises"
+        app:layout_constraintBottom_toTopOf="@+id/running"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,27 +24,27 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
-        android:id="@+id/bicep"
+        android:id="@+id/swimming"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:onClick="gotobicep"
-        android:text="Bicep Exercises"
-        app:layout_constraintBottom_toTopOf="@+id/tricep"
+        android:onClick="gotoswimming"
+        android:text="Swimming Exercises"
+        app:layout_constraintBottom_toTopOf="@+id/walking"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/tricep"
+        android:id="@+id/walking"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:onClick="gototricep"
-        android:text="Tricep Exercises"
+        android:onClick="gotowalking"
+        android:text="Walking Exercises"
         app:layout_constraintBottom_toTopOf="@+id/legs"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -63,15 +63,15 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/back"
+        android:id="@+id/running"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:onClick="gotoback"
-        android:text="Back Exercises"
-        app:layout_constraintBottom_toTopOf="@+id/bicep"
+        android:onClick="gotorunning"
+        android:text="Sprinting/Running Exercises"
+        app:layout_constraintBottom_toTopOf="@+id/swimming"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -81,4 +81,17 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="416dp" />
+
+    <TextView
+        android:id="@+id/numbertext"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
 </android.support.constraint.ConstraintLayout>
