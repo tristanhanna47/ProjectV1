@@ -8,10 +8,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
+import static com.example.t00584336.project_v1.CaloriecountGlobal.caloriecount;
+
 public class SwimmingActivity extends Activity {
 
-    Exercises[] swimmingex = { new Exercises("100m Freestyle ", 200)
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,17 +22,29 @@ public class SwimmingActivity extends Activity {
 
         ListView listView = (ListView) findViewById(R.id.swimminglist);
 
+        final ArrayList<Exercises> swimmingex = new ArrayList<>();
+        Exercises e1 = new Exercises("100m Freestyle", 150);
+        Exercises e2 = new Exercises("150m Freestyle", 1500);
+
+        swimmingex.add(e1);
+        swimmingex.add(e2);
+
         ArrayAdapter<Exercises> adapter = new ArrayAdapter<Exercises>(this,android.R.layout.simple_list_item_1, swimmingex );
         listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-        // Create a message handling object as an anonymous class.
-        AdapterView.OnItemClickListener messageClickedHandler = new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView parent, View v, int position, long id) {
-                // Do something in response to the click
-                Toast.makeText(getApplicationContext(), "You added the " + swimmingex[position] + " exercise to the workout",Toast.LENGTH_LONG).show();
+                Exercises e = swimmingex.get(position);
+                String name = e.getName();
+                int calories = e.getCalories();
+
+                Toast.makeText(getApplicationContext(), "You added the " + name + " exercise to the workout",Toast.LENGTH_LONG).show();
+
+                caloriecount = caloriecount + calories;
+                //Test to check if current calorie count works
+                //Toast.makeText(getApplicationContext(), "Calorie Count = " + caloriecount,Toast.LENGTH_LONG).show();
             }
-        };
-
-        listView.setOnItemClickListener(messageClickedHandler);
-    };
+        });
+    }
 }
