@@ -83,7 +83,7 @@
         app:layout_constraintGuide_begin="416dp" />
 
     <TextView
-        android:id="@+id/numbertext"
+        android:id="@+id/caloriecounter"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"

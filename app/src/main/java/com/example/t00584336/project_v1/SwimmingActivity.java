@@ -12,11 +12,9 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-//import static com.example.t00584336.project_v1.CaloriecountGlobal.caloriecount;
-
 public class SwimmingActivity extends Activity {
 
-    SharedPreferences sharedPref;
+    SharedPreferences sharedPreferences;
     int caloriecount;
 
     @Override
@@ -24,14 +22,13 @@ public class SwimmingActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_swimming);
 
-        sharedPref = this.getSharedPreferences(MainActivity.MY_SHARED_PREF_FILE, Context.MODE_PRIVATE);
-
+        sharedPreferences = this.getSharedPreferences(MainActivity.MY_SHARED_PREF_FILE, Context.MODE_PRIVATE);
 
         ListView listView = (ListView) findViewById(R.id.swimminglist);
 
         final ArrayList<Exercises> swimmingex = new ArrayList<>();
-        Exercises e1 = new Exercises("100m Freestyle", 150);
-        Exercises e2 = new Exercises("150m Freestyle", 1500);
+        Exercises e1 = new Exercises("100m Freestyle", 250);
+        Exercises e2 = new Exercises("150m Freestyle", 2500);
 
         swimmingex.add(e1);
         swimmingex.add(e2);
@@ -50,15 +47,14 @@ public class SwimmingActivity extends Activity {
 
                 caloriecount = caloriecount + calories;
                 //Test to check if current calorie count works
-                //Toast.makeText(getApplicationContext(), "Calorie Count = " + caloriecount,Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Calorie Count = " + caloriecount,Toast.LENGTH_LONG).show();
                 save();
-
             }
         });
     }
 
     private void save() {
-        SharedPreferences.Editor editor = sharedPref.edit();
+        SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt(MainActivity.CALORIE_COUNT, caloriecount);
         editor.commit();
     }

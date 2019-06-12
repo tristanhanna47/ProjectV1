@@ -12,25 +12,23 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import static com.example.t00584336.project_v1.CaloriecountGlobal.caloriecount;
-
 public class WalkingActivity extends Activity {
+
+    SharedPreferences sharedPreferences;
+    int caloriecount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_walking);
 
-        SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putInt(getString(R.string.Exercise_Key), caloriecount);
-        editor.commit();
+        sharedPreferences = this.getSharedPreferences(MainActivity.MY_SHARED_PREF_FILE, Context.MODE_PRIVATE);
 
         ListView listView = (ListView) findViewById(R.id.walkinglist);
 
         final ArrayList<Exercises> walkingex = new ArrayList<>();
-        Exercises e1 = new Exercises("100m Walk", 150);
-        Exercises e2 = new Exercises("150m Walk", 1500);
+        Exercises e1 = new Exercises("100m Walk", 450);
+        Exercises e2 = new Exercises("150m Walk", 4500);
 
         walkingex.add(e1);
         walkingex.add(e2);
@@ -49,8 +47,15 @@ public class WalkingActivity extends Activity {
 
                 caloriecount = caloriecount + calories;
                 //Test to check if current calorie count works
-                //Toast.makeText(getApplicationContext(), "Calorie Count = " + caloriecount,Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Calorie Count = " + caloriecount,Toast.LENGTH_LONG).show();
+                save();
             }
         });
+    }
+
+    private void save() {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt(MainActivity.CALORIE_COUNT, caloriecount);
+        editor.commit();
     }
 }

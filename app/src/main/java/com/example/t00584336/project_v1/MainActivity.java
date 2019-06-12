@@ -11,13 +11,12 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
-    public static final String Exercise_Key = "com.example.t00584336.Exercise_Key";
     public static final String MY_SHARED_PREF_FILE = "my_shared_pref_file";
     public static final String CALORIE_COUNT = "caloriecount_key";
 
-    //    TextView numbertext;
     int caloriecount;
     SharedPreferences sharedPreferences;
+    TextView caloriecounter;
 
 
     @Override
@@ -27,11 +26,11 @@ public class MainActivity extends Activity {
 
 
         sharedPreferences = this.getSharedPreferences(MY_SHARED_PREF_FILE, Context.MODE_PRIVATE);
+       // Intent intent = getIntent();
+       // caloriecount = intent.getIntExtra(sharedPreferences,0);
 
-//        numbertext = findViewById(R.id.numbertext);
-//        Intent intent = getIntent();
-//        int caloriecount = intent.getIntExtra(RunningActivity.NUMBER_KEY, 0);
-//        numbertext.setText(caloriecount);
+        caloriecount = sharedPreferences.getInt(CALORIE_COUNT, 0);
+       // caloriecounter.setText(caloriecount);
     }
 
     public void gotoweight (View view)
