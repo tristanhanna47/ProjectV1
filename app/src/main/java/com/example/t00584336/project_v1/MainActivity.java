@@ -26,11 +26,11 @@ public class MainActivity extends Activity {
 
 
         sharedPreferences = this.getSharedPreferences(MY_SHARED_PREF_FILE, Context.MODE_PRIVATE);
-       // Intent intent = getIntent();
-       // caloriecount = intent.getIntExtra(sharedPreferences,0);
+        //Intent intent = getIntent();
+        //caloriecount = intent.getIntExtra(CALORIE_COUNT,0);
 
-        caloriecount = sharedPreferences.getInt(CALORIE_COUNT, 0);
-       // caloriecounter.setText(caloriecount);
+        //caloriecount = sharedPreferences.getInt(CALORIE_COUNT, 0);
+        //caloriecounter.setText(caloriecount);
     }
 
     public void gotoweight (View view)
