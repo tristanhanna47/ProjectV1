@@ -1,6 +1,8 @@
 package com.example.t00584336.project_v1;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -10,15 +12,20 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import static com.example.t00584336.project_v1.CaloriecountGlobal.caloriecount;
+//import static com.example.t00584336.project_v1.CaloriecountGlobal.caloriecount;
 
 public class SwimmingActivity extends Activity {
 
+    SharedPreferences sharedPref;
+    int caloriecount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_swimming);
+
+        sharedPref = this.getSharedPreferences(MainActivity.MY_SHARED_PREF_FILE, Context.MODE_PRIVATE);
+
 
         ListView listView = (ListView) findViewById(R.id.swimminglist);
 
@@ -44,7 +51,15 @@ public class SwimmingActivity extends Activity {
                 caloriecount = caloriecount + calories;
                 //Test to check if current calorie count works
                 //Toast.makeText(getApplicationContext(), "Calorie Count = " + caloriecount,Toast.LENGTH_LONG).show();
+                save();
+
             }
         });
+    }
+
+    private void save() {
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putInt(MainActivity.CALORIE_COUNT, caloriecount);
+        editor.commit();
     }
 }

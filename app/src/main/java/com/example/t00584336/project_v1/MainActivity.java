@@ -1,6 +1,7 @@
 package com.example.t00584336.project_v1;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -11,15 +12,21 @@ import android.widget.TextView;
 public class MainActivity extends Activity {
 
     public static final String Exercise_Key = "com.example.t00584336.Exercise_Key";
+    public static final String MY_SHARED_PREF_FILE = "my_shared_pref_file";
+    public static final String CALORIE_COUNT = "caloriecount_key";
 
-//    TextView numbertext;
-//    SharedPreferences sharedPreferences;
+    //    TextView numbertext;
+    int caloriecount;
+    SharedPreferences sharedPreferences;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        sharedPreferences = this.getSharedPreferences(MY_SHARED_PREF_FILE, Context.MODE_PRIVATE);
 
 //        numbertext = findViewById(R.id.numbertext);
 //        Intent intent = getIntent();

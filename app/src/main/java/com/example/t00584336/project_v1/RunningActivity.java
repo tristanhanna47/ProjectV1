@@ -1,6 +1,7 @@
 package com.example.t00584336.project_v1;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -25,6 +26,11 @@ public class RunningActivity extends Activity implements Serializable {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_running);
+
+        SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putInt(getString(R.string.Exercise_Key), caloriecount);
+        editor.commit();
 
 //        sharedPreferences = getSharedPreferences(POTATO, MODE_PRIVATE);
 //        caloriecount = sharedPreferences.getInt(NUMBER_KEY,0);
