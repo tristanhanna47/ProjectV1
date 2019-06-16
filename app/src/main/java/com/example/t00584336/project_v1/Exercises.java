@@ -34,6 +34,6 @@ class Exercises {
 
     @Override
     public String toString() {
-        return this.name + "(" + this.calories + " calories)";
+        return this.name + " (" + this.calories + " calories)";
     }
 }

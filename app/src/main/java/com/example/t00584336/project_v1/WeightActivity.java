@@ -27,11 +27,23 @@ public class WeightActivity extends Activity {
         ListView listView = (ListView) findViewById(R.id.weightlist);
 
         final ArrayList<Exercises> weightex = new ArrayList<>();
-        Exercises e1 = new Exercises("Dumbell Curl", 350);
-        Exercises e2 = new Exercises("Bench Press", 3500);
+        Exercises e1 = new Exercises("Pushups", 156);
+        Exercises e2 = new Exercises("Situps", 156);
+        Exercises e3 = new Exercises("Jumping Jacks", 156);
+        Exercises e4 = new Exercises("Farmer's Carry, 1 to 15 lbs", 89);
+        Exercises e5 = new Exercises("Farmer's Carry, 16 to 24 lbs", 111);
+        Exercises e6 = new Exercises("Farmer's Carry, 25 to 49 lbs", 156);
+        Exercises e7 = new Exercises("Farmer's Carry, 50 to 74 lbs", 200);
+        Exercises e8 = new Exercises("Farmer's Carry, 74 lbs and heavier", 245);
 
         weightex.add(e1);
         weightex.add(e2);
+        weightex.add(e3);
+        weightex.add(e4);
+        weightex.add(e5);
+        weightex.add(e6);
+        weightex.add(e7);
+        weightex.add(e8);
 
         ArrayAdapter<Exercises> adapter = new ArrayAdapter<Exercises>(this, android.R.layout.simple_list_item_1, weightex);
         listView.setAdapter(adapter);

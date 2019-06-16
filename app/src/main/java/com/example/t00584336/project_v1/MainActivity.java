@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends Activity {
@@ -15,8 +14,8 @@ public class MainActivity extends Activity {
     public static final String CALORIE_COUNT = "caloriecount_key";
 
     int caloriecount;
-    SharedPreferences sharedPreferences;
     TextView caloriecounter;
+    SharedPreferences sharedPreferences;
 
 
     @Override
@@ -24,13 +23,15 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        caloriecounter = findViewById(R.id.caloriecounter);
 
         sharedPreferences = this.getSharedPreferences(MY_SHARED_PREF_FILE, Context.MODE_PRIVATE);
-        //Intent intent = getIntent();
-        //caloriecount = intent.getIntExtra(CALORIE_COUNT,0);
+        caloriecount = sharedPreferences.getInt(CALORIE_COUNT,0);
+       // Intent intent = getIntent();
+       // caloriecount = intent.getIntExtra(CALORIE_COUNT,0);
 
         //caloriecount = sharedPreferences.getInt(CALORIE_COUNT, 0);
-        //caloriecounter.setText(caloriecount);
+        caloriecounter.setText("Your current workout burns "+ String.valueOf(caloriecount) + " calories");
     }
 
     public void gotoweight (View view)
@@ -57,13 +58,12 @@ public class MainActivity extends Activity {
         startActivity (intent);
     }
 
-//
-//    public void gotolegs (View view)
-//    {
-//        Intent intent = new Intent(this, LegActivity.class);
-//        //intent.putExtra(Ccount, calories);
-//        startActivity (intent);
-//    }
+    public void gotoworkout (View view)
+    {
+        Intent intent = new Intent(this, CurrentWorkoutActivity.class);
+        startActivity (intent);
+    }
+
 
 
 }
