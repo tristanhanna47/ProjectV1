@@ -2,6 +2,7 @@ package com.example.t00584336.project_v1;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -56,6 +57,9 @@ public class WeightActivity extends Activity {
                 int calories = e.getCalories();
 
                 Toast.makeText(getApplicationContext(), "You added the " + name + " exercise to the workout", Toast.LENGTH_LONG).show();
+
+                Intent intent = getIntent();
+                caloriecount = intent.getIntExtra(MainActivity.CALORIE_COUNT, caloriecount);
 
                 caloriecount = caloriecount + calories;
                 //Test to check if current calorie count works
