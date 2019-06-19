@@ -28,8 +28,8 @@ public class CurrentWorkoutActivity extends Activity {
         exercise = intent.getStringExtra(WeightActivity.WORKOUT_NAME);
         sp = getSharedPreferences(MY_WORKOUT_PREFERENCE, MODE_PRIVATE);
 
-//        sp = this.getSharedPreferences(MY_WORKOUT_PREFERENCE, Context.MODE_PRIVATE);
-//        exercise = sp.getString(WORKOUT_KEY,"Nothing yet");
+        sp = this.getSharedPreferences(MY_WORKOUT_PREFERENCE, Context.MODE_PRIVATE);
+        exercise = sp.getString(WORKOUT_KEY,"Nothing yet");
         workoutview.setText(exercise);
     }
 }

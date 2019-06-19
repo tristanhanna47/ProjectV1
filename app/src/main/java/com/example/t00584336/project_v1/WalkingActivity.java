@@ -78,7 +78,7 @@ public class WalkingActivity extends Activity {
 
                 caloriecount = caloriecount + calories;
                 //Test to check if current calorie count works
-                Toast.makeText(getApplicationContext(), "Calorie Count = " + caloriecount,Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), "Calorie Count = " + caloriecount,Toast.LENGTH_LONG).show();
                 save();
             }
         });
