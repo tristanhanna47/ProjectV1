@@ -2,6 +2,7 @@ package com.example.t00584336.project_v1;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -39,11 +40,6 @@ public class SwimmingActivity extends Activity {
         Exercises e3 = new Exercises("Sidestroke", 156);
         Exercises e1 = new Exercises("Treading Water, Moderate Effort", 67);
         Exercises e2 = new Exercises("Treading water, Vigorous Effort", 200);
-//        Exercises e13 = new Exercises();
-//        Exercises e14 = new Exercises();
-//        Exercises e15 = new Exercises();
-//        Exercises e16 = new Exercises();
-//        Exercises e17 = new Exercises();
 
         swimmingex.add(e1);
         swimmingex.add(e2);
@@ -70,6 +66,9 @@ public class SwimmingActivity extends Activity {
 
                 Toast.makeText(getApplicationContext(), "You added the " + name + " exercise to the workout",Toast.LENGTH_LONG).show();
 
+                Intent intent = getIntent();
+                caloriecount = intent.getIntExtra(MainActivity.CALORIE_COUNT, caloriecount);
+
                 caloriecount = caloriecount + calories;
                 //Test to check if current calorie count works
                 Toast.makeText(getApplicationContext(), "Calorie Count = " + caloriecount,Toast.LENGTH_LONG).show();
@@ -81,6 +80,6 @@ public class SwimmingActivity extends Activity {
     private void save() {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt(MainActivity.CALORIE_COUNT, caloriecount);
-        editor.commit();
+        editor.apply();
     }
 }

@@ -2,6 +2,7 @@ package com.example.t00584336.project_v1;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -12,7 +13,11 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import static com.example.t00584336.project_v1.MainActivity.CALORIE_COUNT;
+
 public class WeightActivity extends Activity {
+
+    public static final String WORKOUT_NAME = "WORKOUT KEY";
 
     SharedPreferences sharedPreferences;
     int caloriecount;
@@ -55,6 +60,9 @@ public class WeightActivity extends Activity {
                 String name = e.getName();
                 int calories = e.getCalories();
 
+                Intent intent = new Intent(getApplicationContext(), CurrentWorkoutActivity.class);
+                intent.putExtra(WORKOUT_NAME,e.getName());
+
                 Toast.makeText(getApplicationContext(), "You added the " + name + " exercise to the workout", Toast.LENGTH_LONG).show();
 
                 caloriecount = caloriecount + calories;
@@ -67,7 +75,7 @@ public class WeightActivity extends Activity {
     private void save() {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt(MainActivity.CALORIE_COUNT, caloriecount);
-        editor.commit();
+        editor.apply();
     }
 }
 

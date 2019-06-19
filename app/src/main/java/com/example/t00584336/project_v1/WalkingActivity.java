@@ -84,6 +84,6 @@ public class WalkingActivity extends Activity {
     private void save() {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt(MainActivity.CALORIE_COUNT, caloriecount);
-        editor.commit();
+        editor.apply();
     }
 }

@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -14,6 +15,7 @@ public class MainActivity extends Activity {
     public static final String CALORIE_COUNT = "caloriecount_key";
 
     int caloriecount;
+    int mcaloriecount;
     TextView caloriecounter;
     SharedPreferences sharedPreferences;
 
@@ -27,11 +29,8 @@ public class MainActivity extends Activity {
 
         sharedPreferences = this.getSharedPreferences(MY_SHARED_PREF_FILE, Context.MODE_PRIVATE);
         caloriecount = sharedPreferences.getInt(CALORIE_COUNT,0);
-       // Intent intent = getIntent();
-       // caloriecount = intent.getIntExtra(CALORIE_COUNT,0);
 
-        //caloriecount = sharedPreferences.getInt(CALORIE_COUNT, 0);
-        caloriecounter.setText("Your current workout burns "+ String.valueOf(caloriecount) + " calories");
+        caloriecounter.setText("Your current workout burns "+ caloriecount + " calories");
     }
 
     public void gotoweight (View view)
@@ -62,6 +61,11 @@ public class MainActivity extends Activity {
     {
         Intent intent = new Intent(this, CurrentWorkoutActivity.class);
         startActivity (intent);
+    }
+
+    public void cals (View view)
+    {
+        Toast.makeText(this, "Cals are "+ caloriecount , Toast.LENGTH_SHORT).show();
     }
 
 

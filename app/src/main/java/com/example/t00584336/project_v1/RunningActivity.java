@@ -2,6 +2,7 @@ package com.example.t00584336.project_v1;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +12,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+
+import static com.example.t00584336.project_v1.MainActivity.CALORIE_COUNT;
 
 public class RunningActivity extends Activity {
 
@@ -47,13 +50,6 @@ public class RunningActivity extends Activity {
         Exercises e17= new Exercises("Treadmill, Hard Effort", 200);
         Exercises e18= new Exercises("Treadmill, Vigorous Effort", 312);
         Exercises e19= new Exercises("Water Jogging", 156);
-//        Exercises e18= new Exercises();
-//        Exercises e19= new Exercises();
-//        Exercises e20= new Exercises();
-//        Exercises e21= new Exercises();
-//        Exercises e22= new Exercises();
-//        Exercises e23= new Exercises();
-//        Exercises e24= new Exercises();
 
         runningex.add(e1);
         runningex.add(e2);
@@ -87,6 +83,9 @@ public class RunningActivity extends Activity {
 
                 Toast.makeText(getApplicationContext(), "You added the " + name + " exercise to the workout",Toast.LENGTH_LONG).show();
 
+                Intent intent = getIntent();
+                caloriecount = intent.getIntExtra(MainActivity.CALORIE_COUNT, caloriecount);
+
                 caloriecount = caloriecount + calories;
                 //Test to check if current calorie count works
                 Toast.makeText(getApplicationContext(), "Calorie Count = " + caloriecount,Toast.LENGTH_LONG).show();
@@ -97,7 +96,7 @@ public class RunningActivity extends Activity {
     private void save() {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt(MainActivity.CALORIE_COUNT, caloriecount);
-        editor.commit();
+        editor.apply();
     }
 }
 

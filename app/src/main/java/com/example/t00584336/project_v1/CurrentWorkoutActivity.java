@@ -10,10 +10,11 @@ import android.widget.TextView;
 public class CurrentWorkoutActivity extends Activity {
 
     public static final String WORKOUT_KEY = "workout_key";
+
     public static final String MY_WORKOUT_PREFERENCE = "my_workout_preference";
+    SharedPreferences sp;
 
     String exercise;
-    SharedPreferences sp;
     TextView workoutview;
 
     @Override
@@ -21,16 +22,14 @@ public class CurrentWorkoutActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_current_workout);
 
-        sp = this.getSharedPreferences(MY_WORKOUT_PREFERENCE, Context.MODE_PRIVATE);
-
         workoutview = findViewById(R.id.workoutview);
 
-        sp = this.getSharedPreferences(MY_WORKOUT_PREFERENCE, Context.MODE_PRIVATE);
-        exercise = sp.getString(WORKOUT_KEY,"Nothing yet");
-        workoutview.setText(exercise);
+        Intent intent = getIntent();
+        exercise = intent.getStringExtra(WeightActivity.WORKOUT_NAME);
+        sp = getSharedPreferences(MY_WORKOUT_PREFERENCE, MODE_PRIVATE);
 
-//        Intent intent = getIntent();
-//        String empty = "Nothing yet";
-//        String exercise = intent.getStringExtra(WalkingActivity.WORKOUT_KEY);
+//        sp = this.getSharedPreferences(MY_WORKOUT_PREFERENCE, Context.MODE_PRIVATE);
+//        exercise = sp.getString(WORKOUT_KEY,"Nothing yet");
+        workoutview.setText(exercise);
     }
 }
