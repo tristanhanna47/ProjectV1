@@ -65,6 +65,9 @@ public class WeightActivity extends Activity {
 
                 Toast.makeText(getApplicationContext(), "You added the " + name + " exercise to the workout", Toast.LENGTH_LONG).show();
 
+                Intent intent = getIntent();
+                caloriecount = intent.getIntExtra(MainActivity.CALORIE_COUNT, caloriecount);
+
                 caloriecount = caloriecount + calories;
                 //Test to check if current calorie count works
                 Toast.makeText(getApplicationContext(), "Calorie Count = " + caloriecount,Toast.LENGTH_LONG).show();
